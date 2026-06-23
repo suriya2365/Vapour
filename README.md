@@ -1,2 +1,23 @@
 # Vapour
-A front-end clone of the Steam storefront built with HTML, CSS, and basic JavaScript. Focuses on recreating the look and feel of a modern game distribution platform through responsive design and interactive web elements.
+
+A Steam-inspired game marketplace website built using HTML, CSS, and JavaScript.
+
+## Features
+- Responsive design
+- Game catalog page
+- Navigation menu
+- Search functionality
+- Interactive UI elements
+
+## Technologies Used
+- HTML5
+- CSS3
+- JavaScript
+
+## How to Run
+1. Download the project.
+2. Open index.html in a browser.
+
+## Note
+Still unfinished, especially the library and database part
+Have to add more games and pictures aswell
