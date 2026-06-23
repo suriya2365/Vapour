@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vapour – Game</title>
+  <link href="game-page.css" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="container">
+    <a href="Home.html">Store</a>
+    <a href="#">Community</a>
+    <a href="#">Support</a>
+    <span>|</span>
+    <a href="#">My Account</a>
+  </div>
+</div>
+
+<nav class="main-nav">
+  <div class="container">
+    <a href="Home.html" class="nav-logo">
+      <img src="images/image-removebg-preview.png">
+    </a>
+    <div class="nav-links">
+      <a href="Home.html">
+        <div class="nav-link active">STORE</div>
+      </a>
+      <div class="nav-link">COMMUNITY</div>
+      <a href="cart.html">
+        <div class="nav-link">CART</div>
+      </a>
+      </div>
+    <div class="nav-right">
+      <div class="search-box">
+        <input type="text" placeholder="search the store" />
+        <button>🔍</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb container">
+  <a href="Home.html">Store</a>
+  <span class="breadcrumb-sep">›</span>
+  <a href="#">Games</a>
+  <span class="breadcrumb-sep">›</span>
+  <span id="bc-title">Loading...</span>
+</div>
+
+<div class="game-hero">
+  <img id="hero-img" src="" alt="" />
+  <div class="game-hero-overlay"></div>
+</div>
+
+<div class="game-page">
+
+  <div class="game-main">
+
+    <div id="game-title" class="game-title">Loading...</div>
+
+    <div class="game-meta">
+      <span id="meta-developer"></span>
+      <span class="meta-sep">|</span>
+      <span id="meta-date"></span>
+      <span class="meta-sep">|</span>
+      <span id="meta-genre"></span>
+    </div>
+
+    <div id="game-tags" class="game-tags"></div>
+
+    <div class="screenshots-label">Screenshots</div>
+    <div class="screenshots" id="screenshots">
+      <div class="screenshot"><div class="screenshot-ph"></div></div>
+      <div class="screenshot"><div class="screenshot-ph"></div></div>
+      <div class="screenshot"><div class="screenshot-ph"></div></div>
+      <div class="screenshot"><div class="screenshot-ph"></div></div>
+    </div>
+
+    <div class="section-title">About This Game</div>
+    <div id="game-description" class="game-description">Loading...</div>
+
+    <div class="reviews-section">
+      <div class="section-title">Customer Reviews</div>
+      <div class="review-summary">
+        <div class="review-block">
+          <div class="review-block-label">Recent Reviews</div>
+          <div id="recent-score" class="review-score pos">Very Positive</div>
+          <div id="recent-count" class="review-count">—</div>
+        </div>
+        <div class="review-block">
+          <div class="review-block-label">All Reviews</div>
+          <div id="all-score" class="review-score pos">Overwhelmingly Positive</div>
+          <div id="all-count" class="review-count">—</div>
+        </div>
+      </div>
+
+      <div class="review-item">
+        <div class="review-header">
+          <div class="reviewer-avatar">🎮</div>
+          <div>
+            <div class="reviewer-name">phantom_thief</div>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+          </div>
+        </div>
+        <div class="review-text" id="review-1">An absolute masterpiece. The story, characters, and gameplay all come together perfectly.</div>
+      </div>
+      <div class="review-item">
+        <div class="review-header">
+          <div class="reviewer-avatar">⚔️</div>
+          <div>
+            <div class="reviewer-name">xX_darknight_Xx</div>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+          </div>
+        </div>
+        <div class="review-text" id="review-2">One of the best games I've ever played. Worth every penny.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="purchase-panel">
+    <div class="purchase-cover">
+      <img id="cover-img" src="" alt="" />
+    </div>
+    <div class="purchase-body">
+      <div id="panel-title" class="purchase-title">Loading...</div>
+      <div id="panel-desc" class="purchase-desc">Loading...</div>
+
+      <div class="rating-row">
+        <div class="rating-label">Overall</div>
+        <div class="rating-bar-wrap">
+          <div class="rating-bar-fill" id="rating-fill" style="width: 0%"></div>
+        </div>
+        <div class="rating-pct" id="rating-pct">—</div>
+      </div>
+
+      <div class="price-block">
+        <div class="price-row-top">
+          <span class="discount-badge" id="price-discount"></span>
+          <span class="price-original" id="price-original"></span>
+        </div>
+        <div class="price-final" id="price-final">—</div>
+        <div class="price-note" id="price-note"></div>
+      </div>
+
+      <button class="btn-addcart">Add to Cart</button>
+
+      <div class="detail-list">
+        <div class="detail-row">
+          <span class="detail-key">Developer</span>
+          <span class="detail-val" id="detail-dev">—</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-key">Publisher</span>
+          <span class="detail-val" id="detail-pub">—</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-key">Release Date</span>
+          <span class="detail-val" id="detail-date">—</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-key">Genre</span>
+          <span class="detail-val" id="detail-genre">—</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-key">Platforms</span>
+          <span class="detail-val" id="detail-platforms">—</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script>
+
+  const games = {
+    persona5: {
+      title: "Persona 5 Royal",
+      developer: "Atlus",
+      publisher: "Sega",
+      date: "Oct 21, 2022",
+      genre: "JRPG",
+      tags: ["JRPG", "Turn-Based", "Story Rich", "Anime", "RPG"],
+      description: "Don the mask of Joker and join the Phantom Thieves of Hearts as they stage grand heists to reform society. Corrupt politicians, abusive teachers, and vain celebrities — none can escape justice. Persona 5 Royal is packed with charming characters and tons of content that will keep you engaged for over 100 hours. Explore Tokyo, strengthen bonds with Confidants, and dive into the Metaverse to change hearts.",
+      price: "$59.99",
+      discount: "-40%",
+      originalPrice: "$99.99",
+      priceNote: "Offer ends in 2 days",
+      rating: 96,
+      recentScore: "Overwhelmingly Positive",
+      recentCount: "4,521 recent reviews",
+      allScore: "Overwhelmingly Positive",
+      allCount: "42,310 total reviews",
+      image: "8842019-persona-5-royal-playstation-4-front-cover.webp", // your banner image
+      cover: "8842019-persona-5-royal-playstation-4-front-cover.webp", // your cover image
+      platforms: "Windows",
+      requirements: {
+        min:  { os: "Windows 10 64-bit", cpu: "Intel Core i7-4770", ram: "8 GB", gpu: "GeForce GTX 970", storage: "42 GB" },
+        rec:  { os: "Windows 10/11 64-bit", cpu: "Intel Core i7-8700", ram: "16 GB", gpu: "GeForce GTX 1080", storage: "42 GB" }
+      }
+    },
+
+    eldenring: {
+      title: "Elden Ring",
+      developer: "FromSoftware",
+      publisher: "Bandai Namco",
+      date: "Feb 25, 2022",
+      genre: "Action RPG",
+      tags: ["Souls-like", "Open World", "Action RPG", "Dark Fantasy", "Difficult"],
+      description: "Rise, Tarnished, and be guided by grace to brandish the power of the Elden Ring and become an Elden Lord in the Lands Between. A vast world where open fields with a variety of situations and huge dungeons with complex and three-dimensional designs are seamlessly connected.",
+      price: "$35.99",
+      discount: "-40%",
+      originalPrice: "$59.99",
+      priceNote: "Offer ends in 5 days",
+      rating: 92,
+      recentScore: "Very Positive",
+      recentCount: "12,440 recent reviews",
+      allScore: "Overwhelmingly Positive",
+      allCount: "680,000 total reviews",
+      image: "",   // add your image filename here
+      cover: "",
+      platforms: "Windows",
+      requirements: {
+        min:  { os: "Windows 10/11", cpu: "Intel Core i5-8600K", ram: "12 GB", gpu: "GeForce GTX 1060 3GB", storage: "60 GB" },
+        rec:  { os: "Windows 10/11", cpu: "Intel Core i7-8700K", ram: "16 GB", gpu: "GeForce GTX 1070 8GB", storage: "60 GB" }
+      }
+    }
+  };
+
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get('id');
+
+  fetch(`http://localhost:8080/api/games/${id}`)
+    .then(res => res.json())
+    .then(game => {
+      document.title = `Vapour – ${game.title}`;
+
+      document.getElementById('bc-title').textContent = game.title;
+      document.getElementById('game-title').textContent = game.title;
+      document.getElementById('meta-developer').textContent = game.developer;
+      document.getElementById('meta-date').textContent = game.releaseDate;
+      document.getElementById('meta-genre').textContent = game.genre;
+      document.getElementById('game-description').textContent = game.description;
+
+      // hero banner + cover image
+      if (game.imageUrl) {
+        document.getElementById('hero-img').src = game.imageUrl;
+        document.getElementById('cover-img').src = game.imageUrl;
+      }
+
+      // tags — using genre as single tag since your DB has one genre
+      const tagsEl = document.getElementById('game-tags');
+      const span = document.createElement('span');
+      span.className = 'tag';
+      span.textContent = game.genre;
+      tagsEl.appendChild(span);
+
+      // purchase panel
+      document.getElementById('panel-title').textContent = game.title;
+      document.getElementById('panel-desc').textContent = game.description.substring(0, 100) + '...';
+      document.getElementById('price-final').textContent = '₹' + game.price.toFixed(2);
+
+      // details sidebar
+      document.getElementById('detail-dev').textContent = game.developer;
+      document.getElementById('detail-pub').textContent = game.developer; // no publisher field in your DB
+      document.getElementById('detail-date').textContent = game.releaseDate;
+      document.getElementById('detail-genre').textContent = game.genre;
+      document.getElementById('detail-platforms').textContent = 'Windows';
+    })
+    .catch(err => {
+      document.getElementById('game-title').textContent = 'Game not found.';
+      console.error(err);
+    });
+</script>
+
+</body>
+</html>

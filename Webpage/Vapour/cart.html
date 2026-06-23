@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vapour – Cart</title>
+  <link href="cart.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="container">
+    <a href="Home.html">Store</a>
+    <a href="#">Community</a>
+    <a href="#">Support</a>
+    <span>|</span>
+    <a href="#">My Account</a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="main-nav">
+  <div class="container">
+
+    <a href="Home.html" class="nav-logo">
+      <img src="images/image-removebg-preview.png">
+    </a>
+    <div class="nav-links">
+      <a href="Home.html">
+        <div class="nav-link">STORE</div>
+      </a>
+      <a href="library.html">
+        <div class="nav-link">LIBRARY</div>
+      </a>
+      <a href="cart.html">
+        <div class="nav-link">CART</div>
+      </a>
+    </div>
+    <div class="nav-right">
+      <span class="nav-username">steam_user</span>
+      <div class="nav-cart-count" id="nav-count">3</div>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE -->
+<div class="page">
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a href="Home.html">Store</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>Cart</span>
+  </div>
+
+  <!-- TITLE ROW -->
+  <div class="page-title-row">
+    <div class="page-title">Your Cart</div>
+    <div class="item-count" id="item-count">3 items</div>
+  </div>
+
+  <!-- LEFT: CART ITEMS -->
+  <div>
+
+    <!-- ADD ITEM ROW -->
+    <div style="display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap;">
+      <input type="text" id="add-name" placeholder="Item name"
+        style="flex:1; min-width:120px; background:rgba(0,0,0,.3); border:1px solid var(--border); border-radius:3px; color:var(--text); padding:8px 12px; font-size:13px; font-family:inherit; outline:none;"
+        onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor=''" />
+      <input type="number" id="add-price" placeholder="Price" min="0" step="0.01"
+        style="width:100px; background:rgba(0,0,0,.3); border:1px solid var(--border); border-radius:3px; color:var(--text); padding:8px 12px; font-size:13px; font-family:inherit; outline:none;"
+        onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor=''" />
+      <input type="number" id="add-discount" placeholder="Discount %" min="0" max="100" step="1"
+        style="width:120px; background:rgba(0,0,0,.3); border:1px solid var(--border); border-radius:3px; color:var(--text); padding:8px 12px; font-size:13px; font-family:inherit; outline:none;"
+        onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor=''" />
+      <button onclick="addItem()"
+        style="background:rgba(102,192,244,.15); border:1px solid rgba(102,192,244,.3); border-radius:3px; color:var(--accent); padding:8px 16px; font-size:13px; font-weight:700; cursor:pointer; white-space:nowrap; font-family:inherit; transition:background .15s;"
+        onmouseover="this.style.background='rgba(102,192,244,.25)'" onmouseout="this.style.background='rgba(102,192,244,.15)'">
+        + Add to Cart
+      </button>
+    </div>
+
+    <div class="cart-list" id="cart-list"></div>
+
+    <!-- EMPTY STATE -->
+    <div class="empty-state" id="empty-state">
+      <div class="empty-icon">🛒</div>
+      <div class="empty-title">Your cart is empty</div>
+      <div class="empty-sub">Looks like you haven't added anything yet.</div>
+      <a href="Home.html" class="btn-store">Browse the Store</a>
+    </div>
+
+    <!-- SAVED FOR LATER -->
+    <div class="saved-section" id="saved-section" style="display:none;">
+      <div class="saved-header">
+        <div class="saved-title">Saved for Later</div>
+        <div class="saved-count" id="saved-count">0 items</div>
+      </div>
+      <div class="saved-grid" id="saved-grid"></div>
+    </div>
+  </div>
+
+  <!-- RIGHT: SUMMARY -->
+  <div class="summary">
+    <div class="summary-header">
+      <div class="summary-title">Order Summary</div>
+    </div>
+    <div class="summary-body">
+
+      <div class="promo-row">
+        <input type="text" placeholder="Promo / gift code" id="promo-input" />
+        <button class="promo-btn" onclick="applyPromo()">Apply</button>
+      </div>
+
+      <div class="price-row">
+        <span>Subtotal (<span id="sum-count">3</span> items)</span>
+        <span class="pval" id="sum-subtotal">$107.97</span>
+      </div>
+      <div class="price-row discount" id="row-savings" style="display:none;">
+        <span>Savings</span>
+        <span class="pval" id="sum-savings"></span>
+      </div>
+      <div class="price-row discount" id="row-promo" style="display:none;">
+        <span id="promo-label">Promo code</span>
+        <span class="pval" id="sum-promo"></span>
+      </div>
+      <div class="price-row">
+        <span>Estimated Tax</span>
+        <span class="pval" id="sum-tax">$0.00</span>
+      </div>
+      <div class="price-row total">
+        <span>Total</span>
+        <span class="pval" id="sum-total">$107.97</span>
+      </div>
+
+      <a href="payment.html" class="checkout-btn" id="checkout-btn">Proceed to Checkout</a>
+      <div class="secure-note">🔒 Secure checkout</div>
+      <a href="Home.html" class="continue-link">← Continue Shopping</a>
+
+    </div>
+  </div>
+
+</div><!-- end page -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms</a>
+      <a href="#">Refunds</a>
+      <a href="#">Support</a>
+    </div>
+    <div class="footer-copy">© 2025 Vapour Corporation</div>
+  </div>
+</footer>
+
+<script>
+  const TAX_RATE = 0.00; // set to e.g. 0.18 for 18% GST
+  let promoDiscount = 0;
+  let promoCode = '';
+
+  // ── RECALCULATE ──
+  function recalculate() {
+    const items = document.querySelectorAll('.cart-item');
+    let subtotal = 0;
+    let originalTotal = 0;
+
+    items.forEach(item => {
+      subtotal      += parseFloat(item.dataset.price);
+      originalTotal += parseFloat(item.dataset.original);
+    });
+
+    const savings     = originalTotal - subtotal;
+    const promoAmt    = subtotal * promoDiscount;
+    const afterPromo  = subtotal - promoAmt;
+    const tax         = afterPromo * TAX_RATE;
+    const total       = afterPromo + tax;
+    const count       = items.length;
+
+    // update nav badge
+    document.getElementById('nav-count').textContent = count;
+    document.getElementById('item-count').textContent = count + (count === 1 ? ' item' : ' items');
+    document.getElementById('sum-count').textContent  = count;
+
+    document.getElementById('sum-subtotal').textContent = fmt(subtotal);
+    document.getElementById('sum-tax').textContent      = fmt(tax);
+    document.getElementById('sum-total').textContent    = fmt(total);
+
+    // savings row
+    const rowSavings = document.getElementById('row-savings');
+    if (savings > 0) {
+      rowSavings.style.display = 'flex';
+      document.getElementById('sum-savings').textContent = '−' + fmt(savings);
+    } else {
+      rowSavings.style.display = 'none';
+    }
+
+    // promo row
+    const rowPromo = document.getElementById('row-promo');
+    if (promoDiscount > 0) {
+      rowPromo.style.display = 'flex';
+      document.getElementById('promo-label').textContent = `Code: ${promoCode}`;
+      document.getElementById('sum-promo').textContent = '−' + fmt(promoAmt);
+    } else {
+      rowPromo.style.display = 'none';
+    }
+
+    // empty state
+    const emptyState   = document.getElementById('empty-state');
+    const checkoutBtn  = document.getElementById('checkout-btn');
+    if (count === 0) {
+      emptyState.style.display  = 'block';
+      checkoutBtn.style.opacity = '.4';
+      checkoutBtn.style.pointerEvents = 'none';
+    } else {
+      emptyState.style.display  = 'none';
+      checkoutBtn.style.opacity = '1';
+      checkoutBtn.style.pointerEvents = 'auto';
+    }
+  }
+
+  // ── REMOVE ITEM ──
+  function removeItem(btn) {
+    const item = btn.closest('.cart-item');
+    item.style.transition = 'opacity .2s, transform .2s';
+    item.style.opacity = '0';
+    item.style.transform = 'translateX(20px)';
+    setTimeout(() => { item.remove(); recalculate(); }, 200);
+  }
+
+  // ── SAVE FOR LATER ──
+  function saveItem(btn) {
+    const item = btn.closest('.cart-item');
+    const name     = item.querySelector('.item-name').textContent;
+    const type     = item.querySelector('.item-type').textContent;
+    const price    = parseFloat(item.dataset.price);
+    const original = parseFloat(item.dataset.original);
+    const discount = parseInt(item.dataset.discount);
+
+    // add to saved grid
+    const grid = document.getElementById('saved-grid');
+    const card = document.createElement('div');
+    card.className = 'saved-card';
+    card.innerHTML = `
+      <div class="saved-img"></div>
+      <div class="saved-body">
+        <div class="saved-name">${name}</div>
+        <div class="saved-price-row">
+          ${discount > 0 ? `<span class="saved-badge">−${discount}%</span>` : ''}
+          <span class="saved-price${discount === 0 ? ' nodiscount' : ''}">$${price.toFixed(2)}</span>
+        </div>
+      </div>
+      <button class="add-to-cart-btn" onclick="moveToCart(this, '${name}', '${type}', ${price}, ${original}, ${discount})">+ Add to Cart</button>
+    `;
+    grid.appendChild(card);
+
+    // show saved section
+    const savedSection = document.getElementById('saved-section');
+    savedSection.style.display = 'block';
+    const savedCount = document.getElementById('saved-count');
+    savedCount.textContent = grid.children.length + ' item' + (grid.children.length === 1 ? '' : 's');
+
+    // remove from cart
+    item.style.transition = 'opacity .2s';
+    item.style.opacity = '0';
+    setTimeout(() => { item.remove(); recalculate(); }, 200);
+  }
+
+  // ── MOVE SAVED BACK TO CART ──
+  function moveToCart(btn, name, type, price, original, discount) {
+    const card = btn.closest('.saved-card');
+
+    const list = document.getElementById('cart-list');
+    const item = document.createElement('div');
+    item.className = 'cart-item';
+    item.dataset.price    = price;
+    item.dataset.original = original;
+    item.dataset.discount = discount;
+    item.dataset.id       = Date.now();
+    item.innerHTML = `
+      <div class="item-img"></div>
+      <div class="item-info">
+        <div class="item-name">${name}</div>
+        <div class="item-type">${type}</div>
+      </div>
+      <div class="item-price-col">
+        ${discount > 0 ? `<div class="discount-badge">−${discount}%</div><div class="item-original">$${original.toFixed(2)}</div>` : ''}
+        <div class="item-final${discount === 0 ? ' nodiscount' : ''}">$${price.toFixed(2)}</div>
+      </div>
+      <div class="item-actions">
+        <button class="remove-btn" onclick="removeItem(this)">Remove</button>
+        <button class="save-btn" onclick="saveItem(this)">Save</button>
+      </div>
+    `;
+    list.appendChild(item);
+    card.remove();
+
+    // hide saved section if empty
+    const grid = document.getElementById('saved-grid');
+    if (grid.children.length === 0) {
+      document.getElementById('saved-section').style.display = 'none';
+    } else {
+      document.getElementById('saved-count').textContent = grid.children.length + ' item' + (grid.children.length === 1 ? '' : 's');
+    }
+
+    recalculate();
+  }
+
+  // ── PROMO CODE ──
+  const PROMO_CODES = {
+    'VAPOUR10': 0.10,
+    'SAVE20':   0.20,
+    'NEWUSER':  0.15,
+  };
+
+  function applyPromo() {
+    const input = document.getElementById('promo-input');
+    const code  = input.value.trim().toUpperCase();
+    if (!code) return;
+
+    if (PROMO_CODES[code]) {
+      promoDiscount = PROMO_CODES[code];
+      promoCode     = code;
+      input.style.borderColor = '#a4d007';
+      input.disabled = true;
+      recalculate();
+    } else {
+      input.style.borderColor = '#e05252';
+      setTimeout(() => input.style.borderColor = '', 1200);
+    }
+  }
+
+  document.getElementById('promo-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') applyPromo();
+  });
+
+  // ── FORMAT ──
+  function fmt(n) { return '$' + n.toFixed(2); }
+
+  // ── ADD ITEM ──
+  function addItem() {
+    const nameEl     = document.getElementById('add-name');
+    const priceEl    = document.getElementById('add-price');
+    const discountEl = document.getElementById('add-discount');
+
+    const name     = nameEl.value.trim();
+    const price    = parseFloat(priceEl.value);
+    const discount = parseInt(discountEl.value) || 0;
+
+    if (!name) {
+      nameEl.style.borderColor = '#e05252';
+      nameEl.focus();
+      setTimeout(() => nameEl.style.borderColor = '', 1200);
+      return;
+    }
+    if (isNaN(price) || price < 0) {
+      priceEl.style.borderColor = '#e05252';
+      priceEl.focus();
+      setTimeout(() => priceEl.style.borderColor = '', 1200);
+      return;
+    }
+
+    const original   = price;
+    const finalPrice = discount > 0 ? price - (price * discount / 100) : price;
+
+    const list = document.getElementById('cart-list');
+    const item = document.createElement('div');
+    item.className = 'cart-item';
+    item.dataset.id       = Date.now();
+    item.dataset.price    = finalPrice.toFixed(2);
+    item.dataset.original = original.toFixed(2);
+    item.dataset.discount = discount;
+    item.innerHTML = `
+      <div class="item-img"></div>
+      <div class="item-info">
+        <div class="item-name">${name}</div>
+        <div class="item-type">Base Game</div>
+      </div>
+      <div class="item-price-col">
+        ${discount > 0 ? `<div class="discount-badge">−${discount}%</div><div class="item-original">$${original.toFixed(2)}</div>` : ''}
+        <div class="item-final${discount === 0 ? ' nodiscount' : ''}">$${finalPrice.toFixed(2)}</div>
+      </div>
+      <div class="item-actions">
+        <button class="remove-btn" onclick="removeItem(this)">Remove</button>
+        <button class="save-btn" onclick="saveItem(this)">Save</button>
+      </div>
+    `;
+    list.appendChild(item);
+
+    nameEl.value     = '';
+    priceEl.value    = '';
+    discountEl.value = '';
+    nameEl.focus();
+
+    recalculate();
+  }
+
+  // allow Enter to jump fields
+  document.getElementById('add-name').addEventListener('keydown',     e => { if (e.key === 'Enter') document.getElementById('add-price').focus(); });
+  document.getElementById('add-price').addEventListener('keydown',    e => { if (e.key === 'Enter') document.getElementById('add-discount').focus(); });
+  document.getElementById('add-discount').addEventListener('keydown', e => { if (e.key === 'Enter') addItem(); });
+
+  // ── INIT ──
+  recalculate();
+</script>
+
+</body>
+</html>
