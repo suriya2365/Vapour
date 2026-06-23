@@ -1,6 +1,6 @@
 # Vapour
 
-A Steam-inspired game marketplace website built using HTML, CSS, and JavaScript.
+A Steam-inspired game marketplace website built using HTML and CSS
 
 ## Features
 - Responsive design
@@ -12,7 +12,6 @@ A Steam-inspired game marketplace website built using HTML, CSS, and JavaScript.
 ## Technologies Used
 - HTML5
 - CSS3
-- JavaScript
 
 ## How to Run
 1. Download the project.
