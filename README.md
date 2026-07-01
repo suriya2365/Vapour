@@ -18,5 +18,5 @@ A Steam-inspired game marketplace website built using HTML and CSS
 2. Open index.html in a browser.
 
 ## Note
-Still unfinished, especially the library and database part
+Still unfinished, especially the library,database and purchase sections
 Have to add more games and pictures aswell
